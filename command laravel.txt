@@ -21,12 +21,22 @@ php artisan config:cache
 php artisan migrate
 php artisan migrate:rollback
 
+Чтобы сгенерировать миграцию для обновления таблицы можно использовать команду:
+php artisan make:migration deposits_update --table="deposits"
+
+Для создания таблиц используется:
+Schema::create();
+Для обновления таблиц используется:
+Schema::table();
+
+
 php artisan make:controller dashboardController --resource
 
 Установить breeze
 В первую очередь надо установить с сайта https://nodejs.org инсталятор. В нем сам nodejs и npm пакетный менеджер.
 
-npm install && npm run build
+npm install && npm run dev
+npm run build
 php composer.phar require laravel/breeze
 
 Composer локально:

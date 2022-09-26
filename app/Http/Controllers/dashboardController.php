@@ -14,9 +14,9 @@ class dashboardController extends Controller
      */
     public function index()
     {
-        $users = DB::table('users')->get();
+        $platforms = DB::table('platforms')->get();
 //dd($users);
-        return view('dashboard', compact("users"));
+        return view('dashboard', compact("platforms"));
     }
 
     /**
