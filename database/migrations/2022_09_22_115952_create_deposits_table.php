@@ -17,8 +17,8 @@ return new class extends Migration
             $table->increments("id");
             $table->integer('id_user')->unsigned();
             $table->integer('id_platform')->unsigned();
-            $table->integer('deposit');
-            $table->date('date');
+            $table->integer('deposit')->nullable();
+            $table->date('date')->nullable();
             $table->timestamps();
             $table->foreign("id_user")->references("id")->on("users");
             $table->foreign("id_platform")->references("id")->on("users");

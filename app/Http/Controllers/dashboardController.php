@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\platform;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -14,7 +15,8 @@ class dashboardController extends Controller
      */
     public function index()
     {
-        $platforms = DB::table('platforms')->get();
+//        $platforms = DB::table('platforms')->get();
+        $platforms = platform::all();
 //dd($users);
         return view('dashboard', compact("platforms"));
     }

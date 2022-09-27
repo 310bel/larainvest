@@ -23,6 +23,7 @@
                                 <td>{{ $item->balance }}</td>
                             </tr>
                         @endforeach
+
                     </table>
                 </div>
             </div>
