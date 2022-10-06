@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\platform;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class dashboardController extends Controller
@@ -15,8 +16,12 @@ class dashboardController extends Controller
      */
     public function index()
     {
+        $id = Auth::id();
+        $platforms = DB::table('platforms')->where('id_user', $id)->get();
+
 //        $platforms = DB::table('platforms')->get();
-        $platforms = platform::all();
+
+//        $platforms = platform::all();
 //dd($users);
         return view('dashboard', compact("platforms"));
     }

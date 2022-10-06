@@ -1,3 +1,4 @@
+<?php
 php artisan serve
 
 проверка версии laravel
@@ -20,6 +21,7 @@ php artisan config:cache
 выполняем миграцию
 php artisan migrate
 php artisan migrate:rollback
+php artisan migrate:refresh
 
 Чтобы сгенерировать миграцию для обновления таблицы можно использовать команду:
 php artisan make:migration deposits_update --table="deposits"

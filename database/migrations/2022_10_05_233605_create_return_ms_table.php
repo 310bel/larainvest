@@ -13,15 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('deposits', function (Blueprint $table) {
+        Schema::create('return_ms', function (Blueprint $table) {
             $table->increments("id");
             $table->integer('id_user')->unsigned();
             $table->integer('id_platform')->unsigned();
-            $table->integer('deposit')->nullable();
+            $table->integer('id_loan')->unsigned();
+            $table->integer('return')->nullable();
+            $table->integer('percent')->nullable();
             $table->date('date')->nullable();
             $table->timestamps();
             $table->foreign("id_user")->references("id")->on("users");
             $table->foreign("id_platform")->references("id")->on("platforms");
+            $table->foreign("id_loan")->references("id")->on("loans");
         });
     }
 
@@ -32,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('deposits');
+        Schema::dropIfExists('return_ms');
     }
 };
