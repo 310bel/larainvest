@@ -12,13 +12,14 @@
 {{--                    <br>--}}
                     <table>
                         <tr>
-                            <th>№</th>
+{{--                            <th>№</th>--}}
                             <th>Платформа</th>
                             <th>Баланс </th>
                         </tr>
+                        {{$sum}}
                         @foreach($platforms as $item)
                             <tr>
-                                <td>{{ $item->id }}.</td>
+{{--                                <td>{{ $item->id }}.</td>--}}
                                 <td>{{ $item->name }}</td>
                                 <td>{{ $item->balance }}</td>
                             </tr>

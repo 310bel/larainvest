@@ -18,8 +18,8 @@ return new class extends Migration
             $table->integer('id_user')->unsigned();
             $table->integer('id_platform')->unsigned();
             $table->integer('id_loan')->unsigned();
-            $table->integer('return')->nullable();
-            $table->integer('percent')->nullable();
+            $table->decimal('return', $precision = 15, $scale = 2)->nullable();
+            $table->decimal('percent', $precision = 5, $scale = 2)->nullable();
             $table->date('date')->nullable();
             $table->timestamps();
             $table->foreign("id_user")->references("id")->on("users");

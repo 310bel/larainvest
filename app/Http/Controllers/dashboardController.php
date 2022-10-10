@@ -16,14 +16,19 @@ class dashboardController extends Controller
      */
     public function index()
     {
+        $sum =0;
         $id = Auth::id();
         $platforms = DB::table('platforms')->where('id_user', $id)->get();
+        $deposits = DB::table('deposits')->where('id_user', $id)->get();
+        foreach($deposits as $item){
+           $sum = $sum + $item->deposit;
+        }
 
 //        $platforms = DB::table('platforms')->get();
 
 //        $platforms = platform::all();
 //dd($users);
-        return view('dashboard', compact("platforms"));
+        return view('dashboard', compact("platforms",'sum'));
     }
 
     /**

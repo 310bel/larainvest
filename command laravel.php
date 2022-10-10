@@ -20,8 +20,11 @@ php artisan config:cache
 
 выполняем миграцию
 php artisan migrate
-php artisan migrate:rollback
-php artisan migrate:refresh
+php artisan migrate:rollback //Rolling back migrations
+php artisan migrate:refresh // сначала все Rolling back migrations. после Running migrations.
+
+создаем модели и сразу миграции моделей (ключ -m)
+php artisan make:model platform -m
 
 Чтобы сгенерировать миграцию для обновления таблицы можно использовать команду:
 php artisan make:migration deposits_update --table="deposits"
