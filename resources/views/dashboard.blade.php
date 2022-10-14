@@ -10,8 +10,8 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
 {{--                    <br>--}}
-{{--                    {{dd($sum,$platforms,$day_deposit)}}--}}
-                    <table border="1" width= "800" >
+{{--                    {{dd($sum,$day_dep,$day_deposit,$dep_proc,$dep_day)}}--}}
+                    <table border="1" width= "1100" >
 
                         <tr>
                             <th>№</th>
@@ -19,8 +19,10 @@
                             <th>Депозит </th>
                             <th>Доход </th>
                             <th>Дней инвестировано </th>
+                            <th>Дней инвестировано с учетом даты депозитов </th>
                             <th>Абсолютная доходность % </th>
                             <th>Расчетная доходность годовых, % </th>
+                            <th>Расчетная доходность годовых с учетом даты депозитов, % </th>
                         </tr>
                                             <br>
                         @foreach($platforms as $item)
@@ -30,8 +32,10 @@
                                 <td>{{ $sum[$item->id] }}</td>
                                 <td>{{ $sumpercent[$item->id] }}</td>
                                 <td>{{ $day_deposit[$item->id] }}</td>
+                                <td>{{ $day_dep[$item->id] }}</td>
                                 <td>{{ $aProfit[$item->id] }}</td>
                                 <td>{{ $yearProfit[$item->id] }}</td>
+                                <td>{{ $yearProfit2[$item->id] }}</td>
                             </tr>
                         @endforeach
 
