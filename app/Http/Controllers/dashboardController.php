@@ -16,19 +16,50 @@ class dashboardController extends Controller
      */
     public function index()
     {
-        $sum =0;
         $id = Auth::id();
+
         $platforms = DB::table('platforms')->where('id_user', $id)->get();
-        $deposits = DB::table('deposits')->where('id_user', $id)->get();
-        foreach($deposits as $item){
-           $sum = $sum + $item->deposit;
+
+        foreach($platforms as $item){
+            $deposits = DB::table('deposits')->where('id_user', $id)->where('id_platform', $item->id)->get();
+            $a =0;
+            $start = strtotime("2040-08-11");
+
+
+            foreach($deposits as $item2){
+                $a = $a + $item2->deposit;
+            }
+            $sum[$item->id] =$a; // массив из ид платформ(это ключ) и сумм депозитов.(Депозит в таблице)
+            if ($sum[$item->id]  == 0){ // проверка на отр значение
+                $sum[$item->id] = 1;
+            }
+
+            for ($i = 0; $i < count($deposits); $i++) {
+                if (strtotime($deposits[$i]->date) < $start){ // ищем дату старта депозитов
+                    $start = strtotime($deposits[$i]->date);
+                }
+            }
+
+            $datediff = time() - $start; // получим разность дат (в секундах)
+            $start_date = floor($datediff / (60 * 60 * 24)); // вычислим количество дней из разности дат
+            $day_deposit[$item->id] =$start_date-15; //массив из ид платформ(это ключ) и количество дней.(Дней инвестировано в таблице)
+            if ($day_deposit[$item->id]  <= 0){ // проверка на отр значение
+                $day_deposit[$item->id] = 1;
+            }
+
+            $percent = DB::table('return_ms')->where('id_user', $id)->where('id_platform', $item->id)->get();
+            $a =0;
+            foreach($percent as $item2){
+                $a = $a + $item2->percent;
+            }
+            $sumpercent[$item->id] =$a; // массив из ид платформ(это ключ) и дохода .(Доход в таблице)
+            $aProfit[$item->id] = round($sumpercent[$item->id]/$sum[$item->id]*100,2); // абсолютный доход %
+            $yearProfit[$item->id] = round(365*$aProfit[$item->id]/$day_deposit[$item->id],2); // расчетная доходность годовых, %
+
         }
 
-//        $platforms = DB::table('platforms')->get();
+        return view('dashboard', compact("platforms",'day_deposit','sumpercent','sum','aProfit','yearProfit'));
 
-//        $platforms = platform::all();
-//dd($users);
-        return view('dashboard', compact("platforms",'sum'));
     }
 
     /**
