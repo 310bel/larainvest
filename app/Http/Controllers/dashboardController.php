@@ -16,7 +16,10 @@ class dashboardController extends Controller
      */
     public function index()
     {
+
         $id = Auth::id();
+
+        if ($id == 1){
 
         $platforms = DB::table('platforms')->where('id_user', $id)->get();
 
@@ -26,9 +29,7 @@ class dashboardController extends Controller
             $b =0;
             $dep_proc = [];
             $dep_day = [];
-
             $start = strtotime("2040-08-11");
-
 
             foreach($deposits as $item2){
                 $a = $a + $item2->deposit;
@@ -49,7 +50,6 @@ class dashboardController extends Controller
                 $b = $b + $dep_proc[$i]*$dep_day[$i];
             }
             $day_dep[$item->id] =floor($b); // кол во дней с учетом суммы депозитов
-
 
 
             for ($i = 0; $i < count($deposits); $i++) {
@@ -75,9 +75,14 @@ class dashboardController extends Controller
             $yearProfit[$item->id] = round(365*$aProfit[$item->id]/$day_deposit[$item->id],2); // расчетная доходность годовых, %
             $yearProfit2[$item->id] = round(365*$aProfit[$item->id]/$day_dep[$item->id],2); // расчетная доходность годовых с учетом даты депозитов, %
 
+
+        }
+        return view('dashboard', compact("platforms",'day_deposit','sumpercent','sum','aProfit','yearProfit','yearProfit2','dep_proc','day_dep','dep_day','id'));
         }
 
-        return view('dashboard', compact("platforms",'day_deposit','sumpercent','sum','aProfit','yearProfit','yearProfit2','dep_proc','day_dep','dep_day'));
+        if ($id == 2) {
+            return view('dashboard', compact('id'));
+        }
 
     }
 
