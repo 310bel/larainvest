@@ -81,7 +81,16 @@ class dashboardController extends Controller
         }
 
         if ($id == 2) {
-            return view('dashboard', compact('id'));
+            $total = 0;
+
+            $action = DB::table('lvoviches')->where('id_user', $id)->get();
+
+            foreach($action as $item){
+                $total = $total + $item->action;
+            }
+            $total = $total*-1;
+
+            return view('dashboard', compact('id','action','total'));
         }
 
     }
