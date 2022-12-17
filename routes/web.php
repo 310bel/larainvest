@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\lvovichController;
+use App\Http\Controllers\platformController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\dashboardController;
 
@@ -15,3 +17,6 @@ Route::get('/', function () {
 require __DIR__.'/auth.php';
 
 Route::get('/dashboard', [dashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
+
+Route::get('/lvovich', [lvovichController::class, 'index'])->middleware(['auth'])->name('lvovich');
+Route::get('/platform', [platformController::class, 'index'])->middleware(['auth'])->name('platform');

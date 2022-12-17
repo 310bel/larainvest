@@ -75,9 +75,6 @@ php artisan livewire:publish --assets
 
 php artisan livewire:discover
 
-php artisan make:controller ScheduleController --resource
-ScheduleController
-
 Route::get('/ScheduleTeacher', [ ScheduleController::class, 'index' ])->name('ScheduleTeacher');
 
 
