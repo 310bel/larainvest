@@ -19,7 +19,7 @@ require __DIR__.'/auth.php';
 Route::get('/dashboard', [dashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
 
 Route::get('/lvovich', [lvovichController::class, 'index'])->middleware(['auth'])->name('lvovich');
-Route::get('/lvovich/create', [lvovichController::class, 'create'])->middleware(['auth']);
+Route::get('/lvovich/create', [lvovichController::class, 'create'])->middleware(['auth'])->name('lvovich.create');
 
 Route::post('/lvovich', [lvovichController::class, 'store'])->middleware(['auth'])->name('lvovich.store');
 

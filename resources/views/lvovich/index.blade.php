@@ -12,7 +12,6 @@
                         <br>
 
         <table border="1" width= "1100" >
-
             <tr>
                 <th>Дата </th>
                 <th>Транзакция </th>
@@ -25,8 +24,8 @@
                     <td>{{ $item->action }}</td>
                 </tr>
             @endforeach
-
                     </table>
+                        <a href="{{ route('lvovich.create') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Добавить</a>
                 </div>
             </div>
         </div>

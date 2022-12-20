@@ -7,6 +7,7 @@ use App\Models\platform;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 
 class lvovichController extends Controller
@@ -59,14 +60,17 @@ class lvovichController extends Controller
             'comment' => 'string',
             'action' => 'string',
         ]);
-        $user = Auth::id();
-        $id_user = ['id_user'=> $user];
+//$hh = $data[$date];
+//        $dt = Carbon::parse('$data[date]');
+//                dd($dt);
+
+        $id_user = ['id_user'=> Auth::id()];
         $data=array_merge($id_user,$data);
-
         lvovich::create($data);
+//        dd($data);
 
-       // return redirect()->route('lvovich');
-        dd($data);
+        return redirect()->route('lvovich');
+
 
     }
 
