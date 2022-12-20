@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class lvovich extends Model
 {
     use HasFactory;
+    protected $fillable = ['data','comment','action', 'id_user'];
 }

@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\lvovich;
 use App\Models\platform;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+
 
 class lvovichController extends Controller
 {
@@ -40,7 +42,8 @@ class lvovichController extends Controller
      */
     public function create()
     {
-        //
+//        dd(11111);
+        return view('lvovich.create');
     }
 
     /**
@@ -51,7 +54,20 @@ class lvovichController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = request()->validate([
+            'date' => 'string',
+            'comment' => 'string',
+            'action' => 'string',
+        ]);
+        $user = Auth::id();
+        $id_user = ['id_user'=> $user];
+        $data=array_merge($id_user,$data);
+
+        lvovich::create($data);
+
+       // return redirect()->route('lvovich');
+        dd($data);
+
     }
 
     /**
