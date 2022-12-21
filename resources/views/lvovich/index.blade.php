@@ -17,15 +17,15 @@
                 <th>Транзакция </th>
                 <th>Сумма </th>
             </tr>
-            @foreach($action as $item)
+            @foreach($lvovich as $item)
                 <tr align=center>
-                    <td>{{ $item->date }}</td>
-                    <td>{{ $item->comment }}</td>
-                    <td>{{ $item->action }}</td>
+                    <td><a href="{{ route('lvovich.show', $item->id) }}" >{{ $item->date }}</td>
+                    <td><a href="{{ route('lvovich.show', $item->id) }}" >{{ $item->comment }}</td>
+                    <td><a href="{{ route('lvovich.show', $item->id) }}" >{{ $item->action }}</a></td>
                 </tr>
             @endforeach
                     </table>
-                        <a href="{{ route('lvovich.create') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Добавить</a>
+                        <a href="{{ route('lvovich.create') }}" >Добавить</a>
                 </div>
             </div>
         </div>

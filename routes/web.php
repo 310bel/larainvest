@@ -20,6 +20,7 @@ Route::get('/dashboard', [dashboardController::class, 'index'])->middleware(['au
 
 Route::get('/lvovich', [lvovichController::class, 'index'])->middleware(['auth'])->name('lvovich');
 Route::get('/lvovich/create', [lvovichController::class, 'create'])->middleware(['auth'])->name('lvovich.create');
+Route::get('/lvovich/{lvovich}', [lvovichController::class, 'show'])->middleware(['auth'])->name('lvovich.show');
 
 Route::post('/lvovich', [lvovichController::class, 'store'])->middleware(['auth'])->name('lvovich.store');
 

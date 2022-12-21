@@ -24,14 +24,14 @@ class lvovichController extends Controller
 
             $total = 0;
 
-            $action = DB::table('lvoviches')->orderBy('date')->whereIn('id_user', [1,2] )->get();
+            $lvovich = DB::table('lvoviches')->orderBy('date')->whereIn('id_user', [1,2] )->get();
 
-            foreach($action as $item){
+            foreach($lvovich as $item){
                 $total = $total + $item->action;
             }
             $total = $total*-1;
 
-            return view('lvovich.index', compact('action','total'));
+            return view('lvovich.index', compact('lvovich','total'));
 
     }
 
@@ -80,9 +80,10 @@ class lvovichController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(lvovich $lvovich)
     {
-        //
+        return view('lvovich.show', compact('lvovich'));
+
     }
 
     /**
