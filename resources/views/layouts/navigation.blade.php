@@ -16,7 +16,7 @@
                         {{ __('Главная') }}
                     </x-nav-link>
                     <x-nav-link :href="route('lvovich')" :active="request()->routeIs('lvovich')">
-                        {{ __('Львович') }}
+                        {{ __('Баланс') }}
                     </x-nav-link>
                     <x-nav-link :href="route('platform')" :active="request()->routeIs('platform')">
                         {{ __('Платформы') }}

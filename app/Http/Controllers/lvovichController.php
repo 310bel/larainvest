@@ -20,18 +20,18 @@ class lvovichController extends Controller
     public function index()
     {
 
-        $id = 2;
+//        $id = 2;
 
             $total = 0;
 
-            $action = DB::table('lvoviches')->where('id_user', $id)->get();
+            $action = DB::table('lvoviches')->whereIn('id_user', [1,2] )->get();
 
             foreach($action as $item){
                 $total = $total + $item->action;
             }
             $total = $total*-1;
 
-            return view('lvovich.index', compact('id','action','total'));
+            return view('lvovich.index', compact('action','total'));
 
     }
 
