@@ -24,7 +24,7 @@ class lvovichController extends Controller
 
             $total = 0;
 
-            $action = DB::table('lvoviches')->whereIn('id_user', [1,2] )->get();
+            $action = DB::table('lvoviches')->orderBy('date')->whereIn('id_user', [1,2] )->get();
 
             foreach($action as $item){
                 $total = $total + $item->action;
