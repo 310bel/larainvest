@@ -9,8 +9,20 @@
                     {{ $lvovich->date }}
                     {{ $lvovich->comment }}
                     {{ $lvovich->action }}
+                    <div>
+                        <a href="{{ route('lvovich.edit', $lvovich->id) }}">Редактировать</a>
+                    </div>
+                    <div>
+                        <form action="{{ route('lvovich.delete', $lvovich->id) }}" method="post" class="row g-3">
+                            @csrf
+                            @method('delete')
+                            <input type="submit" value="Удалить" class="btn btn-danger">
+                        </form>
+{{--                        <a href="{{ route('lvovich.delete', $lvovich->id) }}">Удалить</a>--}}
+                    </div>
+
                     <br>
-                    <a href="{{ route('lvovich') }}" >Назад</a>
+                    <a href="{{ route('lvovich') }}">Назад</a>
                 </div>
 
             </div>
