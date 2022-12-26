@@ -83,6 +83,7 @@ class lvovichController extends Controller
      */
     public function show(lvovich $lvovich)
     {
+
         return view('lvovich.show', compact('lvovich'));
 
     }
