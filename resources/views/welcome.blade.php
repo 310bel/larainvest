@@ -37,7 +37,7 @@
             @endif
 
                 <div class="mt-6 text-gray-600 dark:text-gray-400 text-sm">
-                    <h1>LaraInvest</h1>
+                    <h1>BelInvest</h1>
                 </div>
 
     </body>
