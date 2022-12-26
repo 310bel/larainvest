@@ -11,7 +11,7 @@
                         </h2>
                         <br>
 
-        <table class="table table-striped" >
+        <table class="table table-responsive table-sm table-striped table-bordered" >
             <tr>
                 <th scope="col">Дата </th>
                 <th scope="col">Транзакция </th>
