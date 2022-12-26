@@ -11,17 +11,17 @@
                         </h2>
                         <br>
 
-        <table border="1" width= "1100" >
+        <table class="table table-striped" >
             <tr>
-                <th>Транзакция </th>
-                <th>Дата </th>
-                <th>Сумма </th>
+                <th scope="col">Дата </th>
+                <th scope="col">Транзакция </th>
+                <th scope="col">Сумма </th>
             </tr>
             @foreach($lvovich as $item)
 {{--            @php($new_date_format = date('d-m-Y', strtotime($item->date)))--}}
-                <tr align=center>
-                    <td align=left><a href="{{ route('lvovich.show', $item->id) }}" >{{ $item->comment }}</td>
+                <tr>
                     <td><a href="{{ route('lvovich.show', $item->id) }}" >{{ $item->new_date_format }}</td>
+                    <td><a href="{{ route('lvovich.show', $item->id) }}" >{{ $item->comment }}</td>
                     <td><a href="{{ route('lvovich.show', $item->id) }}" >{{ $item->action }}</a></td>
                 </tr>
             @endforeach
