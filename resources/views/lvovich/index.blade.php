@@ -18,8 +18,9 @@
                 <th>Сумма </th>
             </tr>
             @foreach($lvovich as $item)
+                {{$new_date_format = date('d-m-Y', strtotime($item->date))}}
                 <tr align=center>
-                    <td><a href="{{ route('lvovich.show', $item->id) }}" >{{ $item->date }}</td>
+                    <td><a href="{{ route('lvovich.show', $item->id) }}" >{{ $new_date_format }}</td>
                     <td><a href="{{ route('lvovich.show', $item->id) }}" >{{ $item->comment }}</td>
                     <td><a href="{{ route('lvovich.show', $item->id) }}" >{{ $item->action }}</a></td>
                 </tr>
