@@ -28,7 +28,7 @@ class lvovichController extends Controller
 
             foreach($lvovich as $item){
                 $total = $total + $item->action;
-                $item->new_date_format = date('d-m-Y', strtotime($item->date));
+                $item->new_date_format = date('d-m', strtotime($item->date));
             }
             $total = $total*-1;
 
