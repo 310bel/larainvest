@@ -1,34 +1,27 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Личный кабинет') }}
-        </h2>
-    </x-slot>
+    <x-slot name="header"></x-slot>
 
-
-
-
-            <div class="py-12">
+    <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-{{--                    <br>--}}
-{{--                    {{dd($sum,$day_dep,$day_deposit,$dep_proc,$dep_day)}}--}}
+                    {{--                    <br>--}}
+                    {{--                    {{dd($sum,$day_dep,$day_deposit,$dep_proc,$dep_day)}}--}}
 
-                    <table border="1" width= "1100" >
+                    <table class="table table-sm table-striped table-bordered table-hover ">
 
                         <tr>
                             <th>№</th>
                             <th>Платформа</th>
-                            <th>Депозит </th>
-                            <th>Доход </th>
-                            <th>Дней инвестировано </th>
-                            <th>Дней инвестировано с учетом даты депозитов </th>
-                            <th>Абсолютная доходность % </th>
-                            <th>Расчетная доходность годовых, % </th>
-                            <th>Расчетная доходность годовых с учетом даты депозитов, % </th>
+                            <th>Депозит</th>
+                            <th>Доход</th>
+                            <th>Дней инвестировано</th>
+                            <th>Дней инвестировано с учетом даты депозитов</th>
+                            <th>Абсолютная доходность %</th>
+                            <th>Расчетная доходность годовых, %</th>
+                            <th>Расчетная доходность годовых с учетом даты депозитов, %</th>
                         </tr>
-                                            <br>
+                        <br>
                         @foreach($platforms as $item)
                             <tr align=center>
                                 <td>{{ $item->id }}.</td>
@@ -44,11 +37,11 @@
                         @endforeach
 
 
-{{--                        @foreach($platforms as $item)--}}
-{{--                            <tr>--}}
-{{--                                <td>{{$platforms->name}}</td>--}}
-{{--                            </tr>--}}
-{{--                        @endforeach--}}
+                        {{--                        @foreach($platforms as $item)--}}
+                        {{--                            <tr>--}}
+                        {{--                                <td>{{$platforms->name}}</td>--}}
+                        {{--                            </tr>--}}
+                        {{--                        @endforeach--}}
 
 
                     </table>
