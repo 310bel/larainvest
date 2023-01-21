@@ -2,19 +2,35 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\assets;
+use App\Models\platform;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+
 
 class assetsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+
+//        $id = 2;
+
+        $total = 0;
+
+        $assets = DB::table('assets')->orderBy('date')->whereIn('id_user', [1,2] )->get();
+
+        foreach($assets as $item){
+            $total = $total + $item->price;
+            $item->new_date_format = date('d-m-y', strtotime($item->date));
+        }
+        $total = $total*-1;
+
+        return view('assets.index', compact('assets','total'));
+
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -23,7 +39,8 @@ class assetsController extends Controller
      */
     public function create()
     {
-        //
+//        dd(11111);
+        return view('assets.create');
     }
 
     /**
@@ -34,7 +51,23 @@ class assetsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = request()->validate([
+            'date' => 'string',
+            'product' => 'string',
+            'price' => 'string',
+        ]);
+//$hh = $data[$date];
+//        $dt = Carbon::parse('$data[date]');
+//                dd($dt);
+
+        $id_user = ['id_user'=> Auth::id()];
+        $data=array_merge($id_user,$data);
+        assets::create($data);
+//        dd($data);
+
+        return redirect()->route('assets');
+
+
     }
 
     /**
@@ -43,9 +76,11 @@ class assetsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(assets $assets)
     {
-        //
+
+        return view('assets.show', compact('assets'));
+
     }
 
     /**
@@ -54,9 +89,9 @@ class assetsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(assets $assets)
     {
-        //
+        return view('assets.edit', compact('assets'));
     }
 
     /**
@@ -66,9 +101,16 @@ class assetsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(assets $assets)
     {
-        //
+        $data = request()->validate([
+            'date' => 'string',
+            'product' => 'string',
+            'price' => 'string',
+        ]);
+        $assets->update($data);
+        return redirect()->route('assets');
+
     }
 
     /**
@@ -77,8 +119,11 @@ class assetsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(assets $assets)
     {
-        //
+        $assets->delete();
+        return redirect()->route('assets');
+
+
     }
 }

@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('lvovich')" :active="request()->routeIs('lvovich')">
                         {{ __('Баланс') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('assets')" :active="request()->routeIs('assets')">
+                        {{ __('Активы') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('platform')" :active="request()->routeIs('platform')">
                         {{ __('Платформы') }}
                     </x-nav-link>

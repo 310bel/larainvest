@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\assetsController;
 use App\Http\Controllers\lvovichController;
 use App\Http\Controllers\platformController;
 use Illuminate\Support\Facades\Route;
@@ -17,6 +18,15 @@ Route::get('/', function () {
 require __DIR__.'/auth.php';
 
 Route::get('/dashboard', [dashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
+
+Route::get('/assets', [assetsController::class, 'index'])->middleware(['auth'])->name('assets');
+Route::get('/assets/create', [assetsController::class, 'create'])->middleware(['auth'])->name('assets.create');
+Route::get('/assets/{assets}', [assetsController::class, 'show'])->middleware(['auth'])->name('assets.show');
+Route::get('/assets/{assets}/edit', [assetsController::class, 'edit'])->middleware(['auth'])->name('assets.edit');
+Route::patch('/assets/{assets}', [assetsController::class, 'update'])->middleware(['auth'])->name('assets.update');
+Route::delete('/assets/{assets}', [assetsController::class, 'destroy'])->middleware(['auth'])->name('assets.delete');
+
+Route::post('/assets', [assetsController::class, 'store'])->middleware(['auth'])->name('assets.store');
 
 Route::get('/lvovich', [lvovichController::class, 'index'])->middleware(['auth'])->name('lvovich');
 Route::get('/lvovich/create', [lvovichController::class, 'create'])->middleware(['auth'])->name('lvovich.create');

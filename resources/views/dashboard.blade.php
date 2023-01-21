@@ -11,7 +11,8 @@
                 <div class="p-6 bg-white border-b border-gray-200">
 
                     <a href="{{ route('platform') }}"> Платформы</a> <br>
-                    <a href="{{ route('lvovich') }}"> Баланс</a>
+                    <a href="{{ route('lvovich') }}"> Баланс</a> <br>
+                    <a href="{{ route('assets') }}"> Активы</a>
 
                 </div>
             </div>
