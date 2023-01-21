@@ -13,6 +13,8 @@ php -m
 php artisan optimize
 php artisan route:cache
 php artisan route:clear
+php artisan config:clear
+php artisan cache:clear
 php artisan key:generate
 composer dump-autoload
 php artisan view:clear
