@@ -25,10 +25,15 @@
                 </tr>
             @endforeach
                     </table>
+
+                        <div>
+                            {{ $lvovich->links() }}
+                        </div>
+
                         <a href="{{ route('lvovich.create') }}" >Добавить</a>
 
                     </div>
                 </div>
             </div>
-    </div>
+        </div>
 </x-app-layout>

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use App\Http\Controllers\Controller;
 
 
 class lvovichController extends Controller
@@ -24,7 +25,7 @@ class lvovichController extends Controller
 
             $total = 0;
 
-            $lvovich = DB::table('lvoviches')->orderBy('date')->whereIn('id_user', [1,2] )->get();
+            $lvovich = DB::table('lvoviches')->orderBy('date')->whereIn('id_user', [1,2] )->Paginate(15);
 
             foreach($lvovich as $item){
                 $total = $total + $item->action;

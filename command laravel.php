@@ -19,6 +19,7 @@ php artisan key:generate
 composer dump-autoload
 php artisan view:clear
 php artisan config:cache
+php artisan optimize:clear
 
 выполняем миграцию
 php artisan migrate
@@ -79,4 +80,6 @@ php artisan livewire:discover
 
 Route::get('/ScheduleTeacher', [ ScheduleController::class, 'index' ])->name('ScheduleTeacher');
 
+php artisan vendor:publish --tag=laravel-pagination
 
+Paginator::defaultView('view-name');
