@@ -26,12 +26,17 @@ class lvovichController extends Controller
             $total = 0;
 
             $lvovich = DB::table('lvoviches')->orderBy('date')->whereIn('id_user', [1,2] )->Paginate(15);
+            $lvovich0 = DB::table('lvoviches')->orderBy('date')->whereIn('id_user', [1,2] )->get();
 
             foreach($lvovich as $item){
-                $total = $total + $item->action;
                 $item->new_date_format = date('d-m-y', strtotime($item->date));
             }
-            $total = $total*-1;
+
+        foreach($lvovich0 as $item){
+            $total = $total + $item->action;
+        }
+
+        $total = $total*-1;
 
             return view('lvovich.index', compact('lvovich','total'));
 
