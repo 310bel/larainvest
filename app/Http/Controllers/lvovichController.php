@@ -26,7 +26,7 @@ class lvovichController extends Controller
             $total = 0;
 
             $lvovich = DB::table('lvoviches')->orderBy('date')->whereIn('id_user', [1,2] )->Paginate(15);
-            $lvovich0 = DB::table('lvoviches')->orderBy('date')->whereIn('id_user', [1,2] )->get();
+            $lvovich0 = DB::table('lvoviches')->orderBy('date')->whereIn('id_user', [1,2] )->get();  // специально для Итого переменная
 
             foreach($lvovich as $item){
                 $item->new_date_format = date('d-m-y', strtotime($item->date));

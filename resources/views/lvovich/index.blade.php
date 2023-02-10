@@ -19,9 +19,9 @@
             @foreach($lvovich as $item)
 {{--            @php($new_date_format = date('d-m-Y', strtotime($item->date)))--}}
                 <tr>
-                    <td><a href="{{ route('lvovich.show', $item->id) }}" >{{ $item->new_date_format }}</td>
-                    <td><a href="{{ route('lvovich.show', $item->id) }}" >{{ $item->comment }}</td>
-                    <td><a href="{{ route('lvovich.show', $item->id) }}" >{{ $item->action }}</a></td>
+                    <td ><a href="{{ route('lvovich.show', $item->id) }}" >{{ $item->new_date_format }}</td>
+                    <td ><a href="{{ route('lvovich.show', $item->id) }}" >{{ $item->comment }}</td>
+                    <td ><a href="{{ route('lvovich.show', $item->id) }}" >{{ $item->action }}</a></td>
                 </tr>
             @endforeach
                     </table>
