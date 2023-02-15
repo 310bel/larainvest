@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\assetsController;
 use App\Http\Controllers\lvovichController;
+use App\Http\Controllers\pazovController;
 use App\Http\Controllers\platformController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\dashboardController;

@@ -13,27 +13,24 @@
         <table class="table table-sm table-striped table-bordered table-hover " >
             <tr>
                 <th scope="col">Дата </th>
-                <th scope="col">Транзакция </th>
-                <th scope="col">Сумма </th>
+                <th scope="col">Актив </th>
+                <th scope="col">Цена </th>
+                <th scope="col">Кол-во </th>
             </tr>
-            @foreach($lvovich as $item)
+            @foreach($pazov as $item)
 {{--            @php($new_date_format = date('d-m-Y', strtotime($item->date)))--}}
                 <tr>
-                    <td ><a href="{{ route('lvovich.show', $item->id) }}" >{{ $item->new_date_format }}</td>
-                    <td ><a href="{{ route('lvovich.show', $item->id) }}" >{{ $item->comment }}</td>
-                    <td ><a href="{{ route('lvovich.show', $item->id) }}" >{{ $item->action }}</a></td>
+                    <td><a href="{{ route('pazov.show', $item->id) }}" >{{ $item->new_date_format }}</td>
+                    <td><a href="{{ route('pazov.show', $item->id) }}" >{{ $item->product }}</td>
+                    <td><a href="{{ route('pazov.show', $item->id) }}" >{{ $item->price }}</td>
+                    <td><a href="{{ route('pazov.show', $item->id) }}" >{{ $item->quantity }}</a></td>
                 </tr>
             @endforeach
                     </table>
-
-                        <div>
-                            {{ $lvovich->links() }}
-                        </div>
-
-                        <a href="{{ route('lvovich.create') }}" >Добавить</a>
+                        <a href="{{ route('pazov.create') }}" >Добавить</a>
 
                     </div>
                 </div>
             </div>
-        </div>
+    </div>
 </x-app-layout>
