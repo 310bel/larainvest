@@ -13,7 +13,7 @@
         <table class="table table-sm table-striped table-bordered table-hover " >
             <tr>
                 <th scope="col">Дата </th>
-                <th scope="col">Актив </th>
+                <th scope="col">Товар </th>
                 <th scope="col">Цена </th>
                 <th scope="col">Кол-во </th>
             </tr>

@@ -16,7 +16,7 @@ class pazovController extends Controller
 
         $total = 0;
 
-        $pazov = DB::table('pazov')->orderBy('date')->whereIn('id_user', [1,2,3] )->get();
+        $pazov = DB::table('pazovs')->orderBy('date')->get();
 
         foreach($pazov as $item){
             $total = $total + $item->price;
