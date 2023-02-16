@@ -39,6 +39,7 @@ Schema::table();
 
 
 php artisan make:controller dashboardController --resource
+php artisan make:middleware AdminMiddleware
 
 Установить breeze
 В первую очередь надо установить с сайта https://nodejs.org инсталятор. В нем сам nodejs и npm пакетный менеджер.
