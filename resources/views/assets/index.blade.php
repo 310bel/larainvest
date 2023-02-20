@@ -14,14 +14,22 @@
             <tr>
                 <th scope="col">Дата </th>
                 <th scope="col">Актив </th>
-                <th scope="col">Цена </th>
+                <th scope="col">Цена закупки </th>
+                <th scope="col">Расходы </th>
+                <th scope="col">Цена продажи </th>
+                <th scope="col">Прибыль </th>
+                <th scope="col">Информация </th>
             </tr>
             @foreach($assets as $item)
 {{--            @php($new_date_format = date('d-m-Y', strtotime($item->date)))--}}
                 <tr>
                     <td><a href="{{ route('assets.show', $item->id) }}" >{{ $item->new_date_format }}</td>
                     <td><a href="{{ route('assets.show', $item->id) }}" >{{ $item->product }}</td>
-                    <td><a href="{{ route('assets.show', $item->id) }}" >{{ $item->price }}</a></td>
+                    <td><a href="{{ route('assets.show', $item->id) }}" >{{ $item->price }}</td>
+                    <td><a href="{{ route('assets.show', $item->id) }}" >{{ $item->rate }}</td>
+                    <td><a href="{{ route('assets.show', $item->id) }}" >{{ $item->selling_price }}</td>
+                    <td><a href="{{ route('assets.show', $item->id) }}" >{{ $item->profit }}</td>
+                    <td><a href="{{ route('assets.show', $item->id) }}" >{{ $item->information }}</a></td>
                 </tr>
             @endforeach
                     </table>

@@ -17,7 +17,10 @@ return new class extends Migration
             $table->bigincrements("id");
             $table->integer('id_user')->unsigned();
             $table->string('product');
-            $table->decimal('price', $precision = 15, $scale = 2)->nullable();
+            $table->decimal('price', $precision = 15, $scale = 2)->nullable(); // цена закупки
+            $table->decimal('rate', $precision = 15, $scale = 2)->nullable(); //расход
+            $table->decimal('selling_price', $precision = 15, $scale = 2)->nullable(); //цена продажи
+            $table->decimal('profit', $precision = 15, $scale = 2)->nullable(); //прибыль
             $table->string('information');
             $table->date('date')->nullable();
             $table->timestamps();
