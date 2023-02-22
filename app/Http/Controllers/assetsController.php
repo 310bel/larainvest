@@ -55,15 +55,29 @@ class assetsController extends Controller
             'date' => 'string',
             'product' => 'string',
             'price' => 'string',
+            'rate' => 'nullable|string',
+            'selling_price' => 'nullable|string',
+            'profit' => 'nullable|string',
+            'information' => 'nullable|string',
         ]);
 //$hh = $data[$date];
 //        $dt = Carbon::parse('$data[date]');
 //                dd($dt);
-
-        $id_user = ['id_user'=> Auth::id()];
-        $data=array_merge($id_user,$data);
-        assets::create($data);
 //        dd($data);
+        $id_user = ['id_user'=> Auth::id()];
+        $rate = $data['rate']; // переменная с расходами
+
+        $price = $data['price']; // переменная с ценой покупки
+        $selling_price = $data['selling_price']; // переменная с ценой продажи
+
+        $prof = $selling_price-($price+$rate); // переменная с прибылью
+        $profit = ['profit'=> $prof]; // массив с прибылью
+
+        $data=array_merge($id_user,$data,$profit);
+
+//                dd($data);
+        assets::create($data);
+
 
         return redirect()->route('assets');
 
@@ -107,6 +121,10 @@ class assetsController extends Controller
             'date' => 'string',
             'product' => 'string',
             'price' => 'string',
+            'rate' => 'nullable|string',
+            'selling_price' => 'nullable|string',
+            'profit' => 'nullable|string',
+            'information' => 'nullable|string',
         ]);
         $assets->update($data);
         return redirect()->route('assets');
