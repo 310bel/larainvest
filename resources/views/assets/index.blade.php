@@ -15,6 +15,8 @@
                 <th scope="col">Дата </th>
                 <th scope="col">Актив </th>
                 <th scope="col">Цена закупки </th>
+                <th scope="col">На балансе </th>
+                <th scope="col">Кол-во </th>
                 <th scope="col">Расходы </th>
                 <th scope="col">Цена продажи </th>
                 <th scope="col">Прибыль </th>
@@ -26,6 +28,8 @@
                     <td><a href="{{ route('assets.show', $item->id) }}" >{{ $item->new_date_format }}</td>
                     <td><a href="{{ route('assets.show', $item->id) }}" >{{ $item->product }}</td>
                     <td><a href="{{ route('assets.show', $item->id) }}" >{{ $item->price }}</td>
+                    <td><a href="{{ route('assets.show', $item->id) }}" >{{ $item->balance }}</td>
+                    <td><a href="{{ route('assets.show', $item->id) }}" >{{ $item->quantity }}</td>
                     <td><a href="{{ route('assets.show', $item->id) }}" >{{ $item->rate }}</td>
                     <td><a href="{{ route('assets.show', $item->id) }}" >{{ $item->selling_price }}</td>
                     <td><a href="{{ route('assets.show', $item->id) }}" >{{ $item->profit }}</td>

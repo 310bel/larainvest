@@ -58,6 +58,8 @@ class assetsController extends Controller
             'rate' => 'nullable|string',
             'selling_price' => 'nullable|string',
             'profit' => 'nullable|string',
+            'balance' => 'nullable|string',
+            'quantity' => 'nullable|string',
             'information' => 'nullable|string',
         ]);
 //$hh = $data[$date];
@@ -124,6 +126,8 @@ class assetsController extends Controller
             'rate' => 'nullable|string',
             'selling_price' => 'nullable|string',
             'profit' => 'nullable|string',
+            'balance' => 'nullable|string',
+            'quantity' => 'nullable|string',
             'information' => 'nullable|string',
         ]);
         $assets->update($data);

@@ -19,6 +19,16 @@
                                    placeholder="-3000.00">
 
                         <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">На балансе</label><br>
+                            <input type="text" name="balance" class="form-control" id="exampleFormControlInput1"
+                                   placeholder="3000.00">
+
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Кол-во</label><br>
+                            <input type="text" name="quantity" class="form-control" id="exampleFormControlInput1"
+                                   placeholder="1">
+
+                        <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Расходы</label><br>
                             <input type="text" name="rate" class="form-control" id="exampleFormControlInput1"
                                    placeholder="-3000.00">

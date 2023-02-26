@@ -19,6 +19,16 @@
                             <input type="text" name="price" class="form-control" id="exampleFormControlInput1"
                                    value = "{{ $assets->price }}">
 
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">На балансе</label><br>
+                            <input type="text" name="balance" class="form-control" id="exampleFormControlInput1"
+                                   value = "{{ $assets->balance }}">
+
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Кол-во</label><br>
+                            <input type="text" name="quantity" class="form-control" id="exampleFormControlInput1"
+                                   value = "{{ $assets->quantity }}">
+
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Расходы</label><br>
                                 <input type="text" name="rate" class="form-control" id="exampleFormControlInput1"

@@ -18,6 +18,8 @@ return new class extends Migration
             $table->integer('id_user')->unsigned();
             $table->string('product');
             $table->decimal('price', $precision = 15, $scale = 2)->nullable(); // цена закупки
+            $table->decimal('balance', $precision = 15, $scale = 2)->nullable(); // цена балансовая (в начие)
+            $table->decimal('quantity', $precision = 10, $scale = 0)->nullable(); // кол-во
             $table->decimal('rate', $precision = 15, $scale = 2)->nullable(); //расход
             $table->decimal('selling_price', $precision = 15, $scale = 2)->nullable(); //цена продажи
             $table->decimal('profit', $precision = 15, $scale = 2)->nullable(); //прибыль

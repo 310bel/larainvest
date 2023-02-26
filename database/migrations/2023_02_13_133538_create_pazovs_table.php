@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('id_user')->unsigned();
             $table->string('product');
             $table->decimal('price', $precision = 15, $scale = 2)->nullable();
+            $table->decimal('quantity', $precision = 10, $scale = 0)->nullable();
             $table->string('information');
             $table->date('date')->nullable();
             $table->timestamps();
