@@ -22,7 +22,7 @@ class assetsController extends Controller
         $assets = DB::table('assets')->orderBy('date')->whereIn('id_user', [1,2] )->get();
 
         foreach($assets as $item){
-            $total = $total + $item->price;
+            $total = $total + $item->balance;
             $item->new_date_format = date('d-m-y', strtotime($item->date));
         }
         $total = $total*-1;
