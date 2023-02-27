@@ -17,6 +17,7 @@ return new class extends Migration
             $table->bigincrements("id");
             $table->integer('id_user')->unsigned();
             $table->string('product');
+            $table->decimal('code', $precision = 10, $scale = 0)->nullable();
             $table->decimal('price', $precision = 15, $scale = 2)->nullable();
             $table->decimal('quantity', $precision = 10, $scale = 0)->nullable();
             $table->string('information');

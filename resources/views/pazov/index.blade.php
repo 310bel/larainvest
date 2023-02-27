@@ -14,16 +14,20 @@
             <tr>
                 <th scope="col">Дата </th>
                 <th scope="col">Товар </th>
+                <th scope="col">Код </th>
                 <th scope="col">Цена </th>
                 <th scope="col">Кол-во </th>
+                <th scope="col">Информация </th>
             </tr>
             @foreach($pazov as $item)
 {{--            @php($new_date_format = date('d-m-Y', strtotime($item->date)))--}}
                 <tr>
                     <td><a href="{{ route('pazov.show', $item->id) }}" >{{ $item->new_date_format }}</td>
                     <td><a href="{{ route('pazov.show', $item->id) }}" >{{ $item->product }}</td>
+                    <td><a href="{{ route('pazov.show', $item->id) }}" >{{ $item->code }}</td>
                     <td><a href="{{ route('pazov.show', $item->id) }}" >{{ $item->price }}</td>
-                    <td><a href="{{ route('pazov.show', $item->id) }}" >{{ $item->quantity }}</a></td>
+                    <td><a href="{{ route('pazov.show', $item->id) }}" >{{ $item->quantity }}</a>
+                    <td><a href="{{ route('pazov.show', $item->id) }}" >{{ $item->information }}</a></td>
                 </tr>
             @endforeach
                     </table>

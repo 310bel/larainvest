@@ -22,7 +22,6 @@ class pazovController extends Controller
             $total = $total + $item->price;
             $item->new_date_format = date('d-m-y', strtotime($item->date));
         }
-        $total = $total*-1;
 
         return view('pazov.index', compact('pazov','total'));
 
@@ -53,6 +52,8 @@ class pazovController extends Controller
             'product' => 'string',
             'price' => 'string',
             'quantity' => 'string',
+            'code' => 'string',
+            'information' => 'nullable|string',
         ]);
 //$hh = $data[$date];
 //        $dt = Carbon::parse('$data[date]');
@@ -106,6 +107,8 @@ class pazovController extends Controller
             'product' => 'string',
             'price' => 'string',
             'quantity' => 'string',
+            'code' => 'string',
+            'information' => 'nullable|string',
         ]);
         $pazov->update($data);
         return redirect()->route('pazov');

@@ -17,11 +17,22 @@
                             <label for="exampleFormControlInput1" class="form-label">Цена</label><br>
                             <input type="text" name="price" class="form-control" id="exampleFormControlInput1"
                                    value = "{{ $pazov->price }}">
-                        <div class="mb-3">
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Код</label><br>
+                                <input type="text" name="code" class="form-control" id="exampleFormControlInput1"
+                                       value = "{{ $pazov->code }}">
+
+                                <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Кол-во</label><br>
                             <input type="text" name="quantity" class="form-control" id="exampleFormControlInput1"
                                    value = "{{ $pazov->quantity }}">
-                            <div class="mb-3">
+
+                                    <label for="content" class="form-label">Информация</label><br>
+                                    <textarea name="information" class="form-control" id="content" rows="2" >{{ $pazov->information }}</textarea>
+                                </div>
+
+
+                                <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Дата</label><br>
                                 <input type="date" name="date" class="form-control" id="exampleFormControlInput1"
                                        value = "{{ $pazov->date }}">

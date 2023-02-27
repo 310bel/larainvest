@@ -16,9 +16,21 @@
                             <label for="exampleFormControlInput1" class="form-label">Цена</label><br>
                             <input type="text" name="price" class="form-control" id="exampleFormControlInput1"
                                    placeholder="150">
+
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Код</label><br>
+                            <input type="text" name="code" class="form-control" id="exampleFormControlInput1"
+                                   placeholder="01">
+
                             <label for="exampleFormControlInput1" class="form-label">Кол-во</label><br>
                             <input type="text" name="quantity" class="form-control" id="exampleFormControlInput1"
                                    placeholder="1">
+
+                            <div class="mb-3">
+                                <label for="content" class="form-label">Информация</label><br>
+                                <textarea name="information" class="form-control" id="content" rows="2"></textarea>
+                            </div>
+
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Дата</label><br>
                                 <input type="date" name="date" class="form-control" id="exampleFormControlInput1"
