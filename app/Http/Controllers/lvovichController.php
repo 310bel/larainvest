@@ -21,10 +21,14 @@ class lvovichController extends Controller
     public function index()
     {
 
-//        $id = 2;
+        $total_assets = 0;
+        $assets = DB::table('assets')->orderBy('date')->whereIn('id_user', [1,2] )->get();
 
-            $total = 0;
+        foreach($assets as $item){
+            $total_assets = $total_assets + $item->balance;
+        }
 
+        $total = 0;
             $lvovich = DB::table('lvoviches')->orderBy('date')->whereIn('id_user', [1,2] )->Paginate(15);
             $lvovich0 = DB::table('lvoviches')->orderBy('date')->whereIn('id_user', [1,2] )->get();  // специально для Итого переменная
 
@@ -38,8 +42,7 @@ class lvovichController extends Controller
 
         $total = $total*-1;
 
-            return view('lvovich.index', compact('lvovich','total'));
-
+            return view('lvovich.index', compact('lvovich','total','total_assets'));
     }
 
 
