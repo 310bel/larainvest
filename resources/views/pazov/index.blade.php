@@ -33,6 +33,10 @@
                     </table>
                         <a href="{{ route('pazov.create') }}" >Добавить</a>
 
+                        <div class="w-25">
+                            <img scr="{{$item->image}}">
+                        </div>
+
                     </div>
                 </div>
             </div>

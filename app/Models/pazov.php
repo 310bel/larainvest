@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class pazov extends Model
 {
     use HasFactory;
-    protected $fillable = ['date','product','price', 'id_user', "quantity", "code", "information"];
+    protected $fillable = ['date','product','price', 'id_user', "quantity", "code", "information", "image"];
 }

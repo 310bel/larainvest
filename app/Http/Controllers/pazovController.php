@@ -6,6 +6,7 @@ use App\Models\pazov;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class pazovController extends Controller
 {
@@ -54,6 +55,8 @@ class pazovController extends Controller
             'quantity' => 'string',
             'code' => 'string',
             'information' => 'nullable|string',
+            'image' => 'nullable|file',
+
         ]);
 //$hh = $data[$date];
 //        $dt = Carbon::parse('$data[date]');
@@ -61,8 +64,11 @@ class pazovController extends Controller
 
         $id_user = ['id_user'=> Auth::id()];
         $data=array_merge($id_user,$data);
+//        $image = $data['image'];
+        $data['image'] = Storage::put('/images', $data['image']);
+//                dd($imagePath);
         pazov::create($data);
-//        dd($data);
+
 
         return redirect()->route('pazov');
 
@@ -109,6 +115,7 @@ class pazovController extends Controller
             'quantity' => 'string',
             'code' => 'string',
             'information' => 'nullable|string',
+            'image' => 'nullable|file',
         ]);
         $pazov->update($data);
         return redirect()->route('pazov');

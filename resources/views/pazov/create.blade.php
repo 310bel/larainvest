@@ -6,7 +6,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
 
-                    <form action="{{ route('pazov.store') }}" method="post" class="row g-3">
+                    <form action="{{ route('pazov.store') }}" method="post" enctype="multipart/form-data" class="row g-3">
                         @csrf
                         <div class="mb-3">
                             <label for="content" class="form-label">Актив</label><br>
@@ -29,6 +29,11 @@
                             <div class="mb-3">
                                 <label for="content" class="form-label">Информация</label><br>
                                 <textarea name="information" class="form-control" id="content" rows="2"></textarea>
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <label class="input-group-text" for="inputGroupFile01">Добавить</label><br>
+                                <input name="image" type="file" class="form-control" id="inputGroupFile01">
                             </div>
 
                             <div class="mb-3">
