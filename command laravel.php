@@ -84,3 +84,5 @@ Route::get('/ScheduleTeacher', [ ScheduleController::class, 'index' ])->name('Sc
 php artisan vendor:publish --tag=laravel-pagination
 
 Paginator::defaultView('view-name');
+
+php artisan storage:link

@@ -6,7 +6,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
 
-                    <form action="{{ route('pazov.update', $pazov->id) }}" method="post" class="row g-3">
+                    <form action="{{ route('pazov.update', $pazov->id) }}" method="post" enctype="multipart/form-data" class="row g-3">
                         @csrf
                         @method('patch')
                         <div class="mb-3">
@@ -31,6 +31,10 @@
                                     <textarea name="information" class="form-control" id="content" rows="2" >{{ $pazov->information }}</textarea>
                                 </div>
 
+                                <div class="input-group mb-3">
+                                    <label class="custom-file-input" >Добавить изображение</label><br>
+                                    <input name="image" type="file" class="custom-file-input"  value = "{{ $pazov->image }}">
+                                </div>
 
                                 <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Дата</label><br>

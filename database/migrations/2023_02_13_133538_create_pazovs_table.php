@@ -21,6 +21,7 @@ return new class extends Migration
             $table->decimal('price', $precision = 15, $scale = 2)->nullable();
             $table->decimal('quantity', $precision = 10, $scale = 0)->nullable();
             $table->string('information');
+            $table->string('image');
             $table->date('date')->nullable();
             $table->timestamps();
         });

@@ -61,12 +61,16 @@ class pazovController extends Controller
 //$hh = $data[$date];
 //        $dt = Carbon::parse('$data[date]');
 //                dd($dt);
+//        dd($data);
 
         $id_user = ['id_user'=> Auth::id()];
         $data=array_merge($id_user,$data);
 //        $image = $data['image'];
-        $data['image'] = Storage::put('/images', $data['image']);
-//                dd($imagePath);
+
+        if (isset($data['image'])) {
+            $data['image'] = Storage::disk('public')->put('/images', $data['image']);
+        } else $data['image'] = 'images/NO_IMAGE.png';
+//                dd($imagePath);NO_IMAGE.png
         pazov::create($data);
 
 
@@ -106,7 +110,7 @@ class pazovController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(pazov $pazov)
+    public function update(pazov $pazov,Request $request)
     {
         $data = request()->validate([
             'date' => 'string',
@@ -117,6 +121,11 @@ class pazovController extends Controller
             'information' => 'nullable|string',
             'image' => 'nullable|file',
         ]);
+//        dd($data);
+        if (isset($data['image'])) {
+            $data['image'] = Storage::disk('public')->put('/images', $data['image']);
+        } else $data['image'] = 'images/NO_IMAGE.png';
+
         $pazov->update($data);
         return redirect()->route('pazov');
 

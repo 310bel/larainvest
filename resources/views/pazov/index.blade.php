@@ -9,6 +9,7 @@
                         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                             Итого {{$total}} р.
                         </h2>
+
                         <br>
         <table class="table table-sm table-striped table-bordered table-hover " >
             <tr>
@@ -17,6 +18,7 @@
                 <th scope="col">Код </th>
                 <th scope="col">Цена </th>
                 <th scope="col">Кол-во </th>
+                <th scope="col">Изображение </th>
                 <th scope="col">Информация </th>
             </tr>
             @foreach($pazov as $item)
@@ -27,18 +29,17 @@
                     <td><a href="{{ route('pazov.show', $item->id) }}" >{{ $item->code }}</td>
                     <td><a href="{{ route('pazov.show', $item->id) }}" >{{ $item->price }}</td>
                     <td><a href="{{ route('pazov.show', $item->id) }}" >{{ $item->quantity }}</a>
+                    <td><a href="{{ route('pazov.show', $item->id) }}" ><div class="w-25"><img src="{{url('storage/' . $item->image)}}" class="w-25"></div></a>
                     <td><a href="{{ route('pazov.show', $item->id) }}" >{{ $item->information }}</a></td>
                 </tr>
             @endforeach
                     </table>
                         <a href="{{ route('pazov.create') }}" >Добавить</a>
 
-                        <div class="w-25">
-                            <img scr="{{$item->image}}">
-                        </div>
-
                     </div>
                 </div>
             </div>
     </div>
 </x-app-layout>
+
+
