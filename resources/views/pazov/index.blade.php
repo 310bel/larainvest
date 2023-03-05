@@ -29,7 +29,7 @@
                     <td><a href="{{ route('pazov.show', $item->id) }}" >{{ $item->code }}</td>
                     <td><a href="{{ route('pazov.show', $item->id) }}" >{{ $item->price }}</td>
                     <td><a href="{{ route('pazov.show', $item->id) }}" >{{ $item->quantity }}</a>
-                    <td><a href="{{ route('pazov.show', $item->id) }}" ><div class="w-25"><img src="{{url('storage/' . $item->image)}}" class="w-25"></div></a>
+                    <td><a href="{{ route('pazov.show', $item->id) }}" ><div class="w-25"><img src="{{url('storage/' . $item->image)}} "></div></a>
                     <td><a href="{{ route('pazov.show', $item->id) }}" >{{ $item->information }}</a></td>
                 </tr>
             @endforeach
