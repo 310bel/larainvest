@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\assetsController;
+use App\Http\Controllers\galleryController;
 use App\Http\Controllers\lvovichController;
 use App\Http\Controllers\pazovController;
 use App\Http\Controllers\platformController;
@@ -19,6 +20,9 @@ Route::get('/', function () {
 require __DIR__.'/auth.php';
 
 Route::get('/dashboard', [dashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
+
+Route::get('/gallery', [galleryController::class, 'index'])->name('gallery');
+
 
 Route::get('/pazov', [pazovController::class, 'index'])->middleware(['auth'])->name('pazov');
 Route::get('/pazov/create', [pazovController::class, 'create'])->middleware(['auth'])->name('pazov.create');

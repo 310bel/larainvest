@@ -13,7 +13,8 @@
                     <a href="{{ route('platform') }}"> Платформы</a> <br>
                     <a href="{{ route('lvovich') }}"> Баланс</a> <br>
                     <a href="{{ route('assets') }}"> Активы</a> <br>
-                    <a href="{{ route('pazov') }}"> Принт</a>
+                    <a href="{{ route('pazov') }}"> Принт</a> <br>
+                    <a href="{{ route('gallery') }}"> Галерея</a>
 
                 </div>
             </div>

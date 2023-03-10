@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class galleryController extends Controller
 {
@@ -13,7 +14,23 @@ class galleryController extends Controller
      */
     public function index()
     {
-        //
+
+//        $id = 2;
+
+        $total = 0;
+
+        $pazov = DB::table('pazovs')->orderBy('date')->get();
+        $pazov_array = collect($pazov->toArray());
+
+//        dd($pazov_array);
+
+        foreach($pazov as $item){
+            $total = $total + $item->price;
+            $item->new_date_format = date('d-m-y', strtotime($item->date));
+        }
+
+        return view('gallery.index', compact('pazov','total','pazov_array'));
+
     }
 
     /**
