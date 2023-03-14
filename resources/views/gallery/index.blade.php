@@ -10,10 +10,10 @@
     <title>gallery</title>
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
+{{--    <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">--}}
 
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+{{--    @vite(['resources/css/app.css', 'resources/js/app.js'])--}}
 </head>
 
 {{--                        <br>--}}
@@ -33,15 +33,19 @@
 <div class="container">
     <div class="row" data-masonry='{"percentPosition": true }'>
 
-        @foreach($pazov as $key=>$item)
+        @foreach($pazov as $item)
+{{--            <div class="col-xxl-1 col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12">--}}
 
-            <div class="col-xxl-1 col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12">
+            <div class=" col-xxl-1 col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12">
                 <div class="card">
+                <a href="{{ route('gallery.show', $item->id) }}" >
                     <img src="{{url('storage/' . $item->image)}}  " class="img-thumbnail">
+{{--                <div class="card-body">--}}
                     <h12 class='cart-title'>{{ $item->product }}</h12>
                     <br>
-                    код товара: {{ $item->code }}<br>цена {{ $item->price }} р.
+                    код товара: {{ $item->code }}<br>цена {{ $item->price }} р.</a>
                 </div>
+{{--                </div>--}}
             </div>
 
         @endforeach

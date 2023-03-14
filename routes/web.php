@@ -22,6 +22,7 @@ require __DIR__.'/auth.php';
 Route::get('/dashboard', [dashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
 
 Route::get('/gallery', [galleryController::class, 'index'])->name('gallery');
+Route::get('/gallery/{gallery}', [galleryController::class, 'show'])->name('gallery.show');
 
 
 Route::get('/pazov', [pazovController::class, 'index'])->middleware(['auth'])->name('pazov');

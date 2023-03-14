@@ -87,7 +87,7 @@ class pazovController extends Controller
      */
     public function show(pazov $pazov)
     {
-
+//        dd($pazov->product);
         return view('pazov.show', compact('pazov'));
 
     }
