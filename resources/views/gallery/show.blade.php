@@ -1,26 +1,27 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
+    <title>gallery</title>
+</head>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            {{--            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">--}}
-            <div class="p-6 bg-white border-b border-gray-200">
-                @php($new_date_format = date('d-m-Y', strtotime($gallery->date)))
-
-                {{ $new_date_format }} <br>
-                {{ $gallery->product }} <br>
-                {{ $gallery->price }}<br>
-                {{ $gallery->quantity }}<br>
-                <br>
-                <div>
-                </div>
-                <br>
-                <div>
-                        @csrf
-                        @method('delete')
-                    {{--                        <a href="{{ route('pazov.delete', $pazov->id) }}">Удалить</a>--}}
-                </div>
-                <a href="{{ route('pazov') }}" class="link-primary">Назад</a>
-            </div>
-
-            {{--            </div>--}}
-        </div>
-    </div>
+<div class="text-center fs-10   " >
+    {{--<div class="container">--}}
+    {{--    <div class="row" data-masonry='{"percentPosition": true }'>--}}
+    {{--        <div class=" col-xxl-1 ">--}}
+    {{--            <div class="card">--}}
+{{--    <div class="text-center fs-10" style="width: 10rem;" >--}}
+    <img src="{{url('storage/' . $gallery->image)}}  " >
+{{--</div>--}}
+    <br>
+    <div class="fs-4">
+        {{ $gallery->product }}</div>
+    <br>Цена {{ $gallery->price }} р.
+    <br>Код товара: {{ $gallery->code }}
+    <br>Описание: {{ $gallery->information }}
+</div>
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}
