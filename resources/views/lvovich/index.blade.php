@@ -7,7 +7,7 @@
                     <div class="p-6 bg-white border-b border-gray-200">
 
                         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                            Итого {{$total}} р. На балансе {{$total_assets}} р. Кредит {{$days_kredit}} дней. Сумма {{floor($suma_kredit)}} р. Дата кредита {{date("d-m-y", $date_kredit)}}
+                            Итого {{$total}} р. На балансе {{$total_assets}} р. Кредит {{$days_kredit}} дней под {{$rate_kredit*100}}%. Сумма {{floor($suma_kredit)}} р. Дата кредита {{date("d-m-y", $date_kredit)}}
                         </h2>
                         <br>
         <table class="table table-sm table-striped table-bordered table-hover " >

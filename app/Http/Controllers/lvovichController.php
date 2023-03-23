@@ -96,7 +96,7 @@ class lvovichController extends Controller
             $suma_kredit = $suma_kredit + $sum1 * $rate_kredit / 365; // сумма кредита от даты начала кредита
         }
 
-        return view('lvovich.index', compact('lvovich','total','total_assets','days_kredit','suma_kredit', 'date_kredit'));
+        return view('lvovich.index', compact('lvovich','total','total_assets','days_kredit','suma_kredit', 'date_kredit', 'rate_kredit'));
     }
 
 
