@@ -39,10 +39,65 @@ class lvovichController extends Controller
         foreach($lvovich0 as $item){
             $total = $total + $item->action;
         }
-
         $total = $total*-1;
 
-            return view('lvovich.index', compact('lvovich','total','total_assets'));
+        $date_kredit = strtotime("2023-01-30"); // дата начала кредита
+        $suma_kredit = 0;
+
+        $rate_kredit = 0.1; // процент кредита
+        $sum = 0; // сумма итого до начала кредита
+
+        // найдем начальную сумму кредита
+        $date_begin_rashet = strtotime("2022-11-29"); // дата начала расчетов
+        $datediff0 = $date_kredit - $date_begin_rashet ; // получим разность дат (в секундах)
+        $days0 = floor($datediff0 / (60 * 60 * 24)); // вычислим количество дней из разности дат
+        $tekuchdays0 = collect(); // создаем коллекцию пустую
+        $date0 = $date_begin_rashet;
+        for ($i = 0; $i < $days0; $i++) { // перебираем все дни с начала даты начала расчетов
+            $tekuchdays0->push(DB::table('lvoviches')->whereIn('date',  [date("Y-m-d", $date0)]  )->get()) ;  // делаем коллекцию с данными на указанную дату
+            $date0 = $date0 + 86400;
+        }
+        foreach ($tekuchdays0 as $item) {
+            foreach ($item as $item0) {
+                $sum = $sum + $item0->action;
+            }
+        }
+
+//        $sum = $sum*-1;
+
+//        dd($sum);
+//            $begin_kredit = $sum; // начальная сумма кредита
+
+        // вычисляем колво дней кредита
+        $now = strtotime(date("Y-m-d")); // текущее время (метка времени)
+        $datediff = $now - $date_kredit; // получим разность дат (в секундах)
+
+        $days_kredit = floor($datediff / (60 * 60 * 24)); // вычислим количество дней из разности дат
+
+        $date1 = $date_kredit;
+
+        $tekuchdays_kredit = collect(); // создаем коллекцию пустую
+        $sum1 = 0; // сумма средств изменения за день
+
+        for ($i = 0; $i < $days_kredit; $i++) { // перебираем все дни с начала даты кредита
+            $tekuchdays_kredit->push(DB::table('lvoviches')->whereIn('date', [date("Y-m-d", $date1)])->get());  // делаем коллекцию с данными на указанную дату
+            $date1 = $date1 + 86400;
+
+//            dd($sum);
+
+
+            $suma_kredit = $suma_kredit + $sum * $rate_kredit / 365; // прибавляем сумму кредита расчитанную от начальной даты кредита
+        }
+//                    dd($tekuchdays_kredit);
+        foreach ($tekuchdays_kredit as $item) {
+            foreach ($item as $item0) {
+                $sum1 = $sum1 + $item0->action;
+            }
+//            dd($sum1);
+            $suma_kredit = $suma_kredit + $sum1 * $rate_kredit / 365; // сумма кредита от даты начала кредита
+        }
+
+        return view('lvovich.index', compact('lvovich','total','total_assets','days_kredit','suma_kredit', 'date_kredit'));
     }
 
 
