@@ -64,7 +64,6 @@ class lvovichController extends Controller
         }
 
 //        $sum = $sum*-1;
-
 //        dd($sum);
 //            $begin_kredit = $sum; // начальная сумма кредита
 
