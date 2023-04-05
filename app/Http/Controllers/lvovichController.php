@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Filter\LvovichFilter;
+use App\Models\categories;
 use App\Models\lvovich;
-use App\Models\platform;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -30,9 +30,10 @@ class lvovichController extends Controller
         }
 
         $total = 0;
-//            $lvovich = DB::table('lvoviches')->orderBy('date')->whereIn('id_user', [1,2] )->Paginate(150);
-            $lv = DB::table('lvoviches')->orderBy('date')->whereIn('id_user', [1,2] )->Paginate(150);
-            $lvovich = Lvovich::filter($lv);
+            $lvovich = lvovich::filter($request)->orderBy('date')->whereIn('id_user', [1,2] )->Paginate(150); // добавил фильтр
+
+        $categories = categories::all();
+
             $lvovich0 = DB::table('lvoviches')->orderBy('date')->whereIn('id_user', [1,2] )->get();  // специально для Итого переменная
 
             foreach($lvovich as $item){
@@ -99,7 +100,7 @@ class lvovichController extends Controller
             $suma_kredit = $suma_kredit + $sum1 * $rate_kredit / 365; // сумма кредита от даты начала кредита
         }
 
-        return view('lvovich.index', compact('lvovich','total','total_assets','days_kredit','suma_kredit', 'date_kredit', 'rate_kredit'));
+        return view('lvovich.index', compact('lvovich','total','total_assets','days_kredit','suma_kredit', 'date_kredit', 'rate_kredit', 'categories'));
     }
 
 
