@@ -19,7 +19,7 @@
                             <div class="mb-3">
                                 <div class="form-label">Выберите категорию</div>
                                 <select name="category_id" class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                    <option></option>
+                                    <option>-</option>
                                     @foreach($categories as $category)
                                         <option value="{{$category->id}}" @if(isset($_GET['category_id'])) @if($_GET['category_id'] == $category->id) selected @endif @endif>{{$category->name}}</option>
                                     @endforeach

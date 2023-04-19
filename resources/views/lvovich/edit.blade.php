@@ -17,6 +17,17 @@
                             <label for="exampleFormControlInput1" class="form-label">Сумма</label><br>
                             <input type="text" name="action" class="form-control" id="exampleFormControlInput1"
                                    value = "{{ $lvovich->action }}">
+
+                            <div class="mb-3">
+                                <br> <label for="exampleFormControlInput1" class="form-label">Категория</label><br>
+                                <select name="category_id" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                    <option>-</option>
+                                    @foreach($categories as $category)
+                                        <option value="{{$category->id}}" @if($lvovich->category_id == $category->id  )  selected @endif >{{$category->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Дата</label><br>
                                 <input type="date" name="date" class="form-control" id="exampleFormControlInput1"

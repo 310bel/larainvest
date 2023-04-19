@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Builder;
 class lvovich extends Model
 {
     use HasFactory;
-    protected $fillable = ['date','comment','action','id_user'];
+    protected $fillable = ['date','comment','action','id_user', 'category_id'];
   //  protected $dates = [];
     public function scopeFilter(Builder $builder, QueryFilter $filter){
         return $filter->apply($builder);

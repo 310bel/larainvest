@@ -19,6 +19,7 @@ return new class extends Migration
 //            $table->string('comment')->unsigned();
 //            $table->decimal('action', $precision = 15, $scale = 2)->nullable();
 //            $table->string('information')->unsigned();
+        //            $table->integer('category_id')->unsigned();
 //            $table->date('date')->nullable();
 //            $table->timestamps();
 //        });

@@ -112,7 +112,9 @@ class lvovichController extends Controller
     public function create()
     {
 //        dd(11111);
-        return view('lvovich.create');
+        $categories = categories::all();
+        return view('lvovich.create', compact( 'categories'));
+
     }
 
     /**
@@ -123,10 +125,12 @@ class lvovichController extends Controller
      */
     public function store(Request $request)
     {
+
         $data = request()->validate([
             'date' => 'string',
             'comment' => 'string',
             'action' => 'string',
+            'category_id' => 'string',
         ]);
 //$hh = $data[$date];
 //        $dt = Carbon::parse('$data[date]');
@@ -136,6 +140,7 @@ class lvovichController extends Controller
         $data=array_merge($id_user,$data);
         lvovich::create($data);
 //        dd($data);
+
 
         return redirect()->route('lvovich');
 
@@ -163,7 +168,11 @@ class lvovichController extends Controller
      */
     public function edit(lvovich $lvovich)
     {
-        return view('lvovich.edit', compact('lvovich'));
+//        dd($lvovich);
+
+        $categories = categories::all();
+
+        return view('lvovich.edit', compact('lvovich', 'categories'));
     }
 
     /**
@@ -179,6 +188,7 @@ class lvovichController extends Controller
             'date' => 'string',
             'comment' => 'string',
             'action' => 'string',
+            'category_id' => 'string',
         ]);
         $lvovich->update($data);
         return redirect()->route('lvovich');
