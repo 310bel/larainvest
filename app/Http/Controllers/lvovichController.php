@@ -45,10 +45,10 @@ class lvovichController extends Controller
         }
         $total = $total*-1;
 
-        $date_kredit = strtotime("2023-01-30"); // дата начала кредита
+        $date_kredit = strtotime("2023-04-20"); // дата начала кредита
         $suma_kredit = 0;
 
-        $rate_kredit = 0.1; // процент кредита
+        $rate_kredit = 0.12; // процент кредита
         $sum = 0; // сумма итого до начала кредита
 
         // найдем начальную сумму кредита
