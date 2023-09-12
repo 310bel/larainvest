@@ -7,7 +7,10 @@
                     <div class="p-6 bg-white border-b border-gray-200">
 
                         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                            Итого {{$total}} р. На балансе {{$total_assets}} р. Кредит {{$days_kredit}} дней под {{$rate_kredit*100}}%. Сумма {{floor($suma_kredit)}} р. Дата кредита {{date("d-m-y", $date_kredit)}}
+                            Баланс {{$total}} р. Активы {{$total_assets}} Итого {{$total+$total_assets/2}}  р.
+{{--
+                            Итого {{$total}} р. Активы {{$total_assets}} р. Кредит {{$days_kredit}} дней под {{$rate_kredit*100}}%. Сумма {{floor($suma_kredit)}} р. Дата кредита {{date("d-m-y", $date_kredit)}}
+--}}
                         </h2>
 
                         <div class="container">
