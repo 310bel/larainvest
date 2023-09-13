@@ -33,7 +33,7 @@ Route::patch('/pazov/{pazov}', [pazovController::class, 'update'])->middleware([
 Route::delete('/pazov/{pazov}', [pazovController::class, 'destroy'])->middleware(['auth'])->name('pazov.delete');
 Route::post('/pazov', [pazovController::class, 'store'])->middleware(['auth'])->name('pazov.store');
 
-Route::group(['middleware' => 'admin'],function(){
+Route::group(['middleware' => 'admin' ],function(){
 Route::get('/assets', [assetsController::class, 'index'])->middleware(['auth'])->name('assets');
 Route::get('/assets/create', [assetsController::class, 'create'])->middleware(['auth'])->name('assets.create');
 Route::get('/assets/{assets}', [assetsController::class, 'show'])->middleware(['auth'])->name('assets.show');
@@ -49,6 +49,7 @@ Route::get('/lvovich/{lvovich}/edit', [lvovichController::class, 'edit'])->middl
 Route::patch('/lvovich/{lvovich}', [lvovichController::class, 'update'])->middleware(['auth'])->name('lvovich.update');
 Route::delete('/lvovich/{lvovich}', [lvovichController::class, 'destroy'])->middleware(['auth'])->name('lvovich.delete');
 Route::post('/lvovich', [lvovichController::class, 'store'])->middleware(['auth'])->name('lvovich.store');
+
 
 Route::get('/platform', [platformController::class, 'index'])->middleware(['auth'])->name('platform');
 });

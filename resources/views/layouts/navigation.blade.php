@@ -21,9 +21,6 @@
                     <x-nav-link :href="route('assets')" :active="request()->routeIs('assets')">
                         {{ __('Активы') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('platform')" :active="request()->routeIs('platform')">
-                        {{ __('Платформы') }}
-                    </x-nav-link>
                     <x-nav-link :href="route('pazov')" :active="request()->routeIs('pazov')">
                         {{ __('Принт') }}
                     </x-nav-link>

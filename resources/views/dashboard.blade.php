@@ -9,8 +9,9 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-
+                    @if(Auth::id()==1)
                     <a href="{{ route('platform') }}"> Платформы</a> <br>
+                    @endif
                     <a href="{{ route('lvovich') }}"> Баланс</a> <br>
                     <a href="{{ route('assets') }}"> Активы</a> <br>
                     <a href="{{ route('pazov') }}"> Принт</a> <br>
