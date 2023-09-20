@@ -39,10 +39,10 @@ class platformController extends Controller
                 }
 
                 foreach($deposits as $item2){
-                    if ($item2->deposit > 0){
+//                    if ($item2->deposit > 0){
                         $dep_proc[] = $item2->deposit / $a; // массив из данных для каждого депозита процент от общей суммы
                         $dep_day[] = round((time() - strtotime($item2->date)) / (60 * 60 * 24), 5); // массив из данных для каждого депозита количество дней
-                    }
+//                    }
                 }
 
                 for ($i = 0; $i < count($dep_proc); $i++) {
@@ -70,8 +70,8 @@ class platformController extends Controller
                     $a = $a + $item2->percent;
                 }
                 $sumpercent[$item->id] =$a; // массив из ид платформ(это ключ) и дохода .(Доход в таблице)
-                $aProfit[$item->id] = round($sumpercent[$item->id]/$sum[$item->id]*100,2); // абсолютный доход %
-                $yearProfit[$item->id] = round(365*$aProfit[$item->id]/$day_deposit[$item->id],2); // расчетная доходность годовых, %
+                $aProfit[$item->id] = round($sumpercent[$item->id]/$sum[$item->id]*100,2); // Абсолютная доходность %
+                $yearProfit[$item->id] = round(365*$aProfit[$item->id]/$day_deposit[$item->id],2); // расчетная доходность годовых, %(все заработанные деньги делятся на колво дней с дня старта депозитов)
                 $yearProfit2[$item->id] = round(365*$aProfit[$item->id]/$day_dep[$item->id],2); // расчетная доходность годовых с учетом даты депозитов, %
 
 
